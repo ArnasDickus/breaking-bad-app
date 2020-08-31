@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [SpinnerComponent],
+  exports: [
+    SpinnerComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
   ]
 })
 // @ts-ignore

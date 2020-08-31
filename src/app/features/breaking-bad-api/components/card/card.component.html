@@ -1,0 +1,25 @@
+<ng-container *ngIf="filteredData">
+  <div class="row">
+    <div *ngFor="let card of filteredData" class="col-4 mb-5">
+      <p-card  [header]="card.name" [subheader]="card.nickname" [style]="{width: '360px'}" styleClass="p-card-shadow">
+        <p-header>
+          <img [alt]="card.name" [src]="card.img" class="card__img">
+        </p-header>
+
+        <p-accordion>
+          <p-accordionTab header="Spoilers" [selected]="false">
+            <p><span class="font-weight-bold">Birthday:</span> {{card.birthday}} </p>
+            <span class="font-weight-bold">Occupation</span>
+            <ul>
+              <li *ngFor="let occupation of card.occupation">
+                {{occupation}}
+              </li>
+            </ul>
+
+            <p><span class="font-weight-bold">Status:</span> {{ card.status }}</p>
+          </p-accordionTab>
+        </p-accordion>
+      </p-card>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,63 @@
+<form [formGroup]="form">
+  <div>
+    <label class="d-none">Search by Name</label>
+      <input
+        formControlName="searchByName"
+        type="text"
+        placeholder="Enter Name"
+        class="form-control"
+        (input)="onChange(form.value)" >
+  </div>
+
+  <p-accordion>
+    <p-accordionTab header="Advanced search" [selected]="false">
+      <label>
+        <input
+          formControlName="searchByNickname"
+          type="text"
+          class="form-control"
+          placeholder="Search By Nickname"
+          (input)="onChange(form.value)" >
+      </label>
+
+      <h2 class="mt-2"> Search by Show </h2>
+
+      <div class="d-flex justify-content-center radio__label-margin--0">
+        <div class="mr-3 mb-0">
+          <p-checkbox
+            name="searchByShow"
+            [value]="true"
+            label="Breaking Bad"
+            (click)="onChange(form.value)"
+            [formControl]="this.form.get('searchByShow.breakingBad')">
+          </p-checkbox>
+        </div>
+
+        <div class="mr-3 mb-0">
+          <p-checkbox
+            name="searchByShow"
+            [value]="true"
+            label="Better Call Saul"
+            (click)="onChange(form.value)"
+            [formControl]="this.form.get('searchByShow.betterCallSaul')">
+          </p-checkbox>
+        </div>
+      </div>
+
+      <h2 class="mt-4">Search by profession</h2>
+
+      <p-dropdown
+        (onChange)="onChange(form.value)"
+        [options]="filteredOccupationsOptions"
+        formControlName="searchByOccupation">
+      </p-dropdown>
+
+      <h2 class="mt-4">Search by mortality</h2>
+      <p-dropdown
+        [options]="mortalityOptions"
+        (onChange)="onChange(form.value)"
+        formControlName="searchByRIP">
+      </p-dropdown>
+    </p-accordionTab>
+  </p-accordion>
+</form>

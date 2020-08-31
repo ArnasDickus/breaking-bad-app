@@ -1,0 +1,22 @@
+<div class="bg-image">
+  <div class="text-center pt-5">
+    <img src="../../../../../assets/images/breaking-bad-api/logo.png">
+  </div>
+
+  <div class="text-center pt-5 container">
+    <app-search-form
+      (searchEvent)="filterSearchData($event)"
+      [filteredOccupationsOptions]="filteredOccupationsOptions" >
+    </app-search-form>
+  </div>
+
+  <div class="container mt-5">
+    <ng-container *ngIf="!isDataLoaded">
+      <app-spinner></app-spinner>
+    </ng-container>
+
+    <app-card
+      [filteredData]="filteredData">
+    </app-card>
+  </div>
+</div>

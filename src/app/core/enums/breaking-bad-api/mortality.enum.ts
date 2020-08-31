@@ -1,5 +1,5 @@
 export enum Mortality {
-  ALL = 'All',
+  ALL = 'Everyone',
   ALIVE = 'Alive',
   DECEASED = 'Deceased',
   UNKNOWN = 'Unknown'

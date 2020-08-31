@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   public allOccupations: any = [];
   public filteredOccupationsOptions: Options[]  = [
     {
-      label: 'All',
+      label: 'Everyone',
       value: 'all'
     }
   ];

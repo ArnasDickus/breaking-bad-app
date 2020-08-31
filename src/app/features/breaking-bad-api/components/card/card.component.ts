@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Characters } from '@core/interfaces/breaking-bad-api/characters';
 
 @Component({
@@ -6,15 +6,7 @@ import { Characters } from '@core/interfaces/breaking-bad-api/characters';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
   @Input() public filteredData: Characters[];
-
-  constructor() { }
-
-  ngOnInit(): void {
-    setTimeout(() => {
-      console.log(this.filteredData);
-    }, 2000);
-  }
-
+  public errorImage = '../../../../../assets/images/breaking-bad-api/missing-person-2.jpg';
 }

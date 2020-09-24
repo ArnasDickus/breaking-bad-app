@@ -16,7 +16,6 @@ export class BreakingBadApiService {
   }
 
   public fetchAllCharacters(): Observable<Characters[]> {
-    // return null;
     return this.http.get<Characters[]>(`${this.url}${this.characters}`);
   }
 }

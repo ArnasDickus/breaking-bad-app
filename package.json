@@ -1,5 +1,5 @@
 {
-  "name": "angular-boilerplate",
+  "name": "breaking-bad-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,8 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "deploy": "ng build -–prod –aot –base-href=/breaking-bad-app/ && cp ./dist/index.html ./dist/404.html && ./node_modules/.bin/angular-cli-ghpages –no-silent"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {

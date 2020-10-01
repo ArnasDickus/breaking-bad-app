@@ -11,9 +11,10 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
 import { CheckboxModule } from 'primeng/checkbox';
 import { DropdownModule } from 'primeng/dropdown';
 import { AccordionModule } from 'primeng/accordion';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
-  declarations: [SearchCharactersComponent, CardComponent, SearchFormComponent, SearchFormComponent],
+  declarations: [SearchCharactersComponent, CardComponent, SearchFormComponent, SearchFormComponent, HomeComponent],
   imports: [
     CommonModule,
     BreakingBadApiRoutingModule,

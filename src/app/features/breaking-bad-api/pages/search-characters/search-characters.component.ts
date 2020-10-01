@@ -6,11 +6,11 @@ import { Options } from '@core/interfaces/options';
 import { Mortality } from '@core/enums/breaking-bad-api/mortality.enum';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-search-characters',
+  templateUrl: './search-characters.component.html',
+  styleUrls: ['./search-characters.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class SearchCharactersComponent implements OnInit {
   // TODO Docs https://github.com/haykoyaghubyan/angular-data-filters/blob/master/src/app/pipe/filter.pipe.ts
   public filteredData: any;
   public fetchedData: Characters[];

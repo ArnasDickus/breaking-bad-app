@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Allroutes} from '@core/enums/allroutes.enum';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  public searchCharactersRoute = Allroutes.SEARCHCHARACTERS;
 
   constructor() { }
 

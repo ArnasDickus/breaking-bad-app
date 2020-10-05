@@ -11,7 +11,6 @@ import { Mortality } from '@core/enums/breaking-bad-api/mortality.enum';
   styleUrls: ['./search-characters.component.scss']
 })
 export class SearchCharactersComponent implements OnInit {
-  // TODO Docs https://github.com/haykoyaghubyan/angular-data-filters/blob/master/src/app/pipe/filter.pipe.ts
   public filteredData: any;
   public fetchedData: Characters[];
   public form: FormGroup;
@@ -21,7 +20,7 @@ export class SearchCharactersComponent implements OnInit {
     {
       label: 'Everyone',
       value: 'all'
-    }
+    },
   ];
 
   constructor(
@@ -34,8 +33,9 @@ export class SearchCharactersComponent implements OnInit {
   }
 
   public filterSearchData(filter): void {
+    // Filtered Data filters when I change search By occupation Why???
     const { searchByShow } = filter;
-
+    console.log(filter);
     this.filteredData = this.fetchedData;
 
     if (filter.searchByName !== '') {
@@ -53,15 +53,6 @@ export class SearchCharactersComponent implements OnInit {
     this.filterByShow(searchByShow);
     this.filterByProfession(filter);
     this.filterByRIP(filter);
-    // TODO Every time there is a change. I need to get this.form.value
-    // Create search: It should contain:
-    // 1) Search by Name.
-    // 2) Search by Nickname
-    // 3) Radio buttons. Display only breaking bad characters, only better call saul characters. Display both characters
-    // 4) Display characters who was in both breaking bad and better call saul.
-    // 4) Dropdown for all occupations. Clicking on it will display users who have that occupation.
-    // 5) Radio button show all dead characters, show all alive characters, show all.
-    // 6) Multiple search is valid. For example Click display only alive characters, and search by name.
   }
 
   private fetchData(): void {
@@ -71,7 +62,7 @@ export class SearchCharactersComponent implements OnInit {
         this.isDataLoaded = true;
         this.fetchedData = task;
         this.filteredData = task;
-        this.findAllPairOccupations(task);
+        this.findAllOccupations(task);
       }
     });
   }
@@ -88,13 +79,14 @@ export class SearchCharactersComponent implements OnInit {
     }
   }
 
-  private filterByProfession(form): void {
-    if (form.searchByOccupation !== 'all') {
+  private filterByProfession(filter): void {
+    if (filter.searchByOccupation !== 'all') {
+      console.log(this.filteredData);
       this.filteredData = this.filteredData
         .filter(person => person.occupation
-          .every(occupation => occupation.includes(form.searchByOccupation)));
+          .every(occupation => occupation.includes(filter.searchByOccupation)));
       }
-    }
+  }
 
   private filterByRIP(form): void {
     if (form.searchByRIP !== Mortality.ALL) {
@@ -113,33 +105,25 @@ export class SearchCharactersComponent implements OnInit {
     }
   }
 
-  private findAllPairOccupations(task): void {
-    // Get all occupations
+  private findAllOccupations(task): void {
     task.forEach((person) => {
-      person.occupation.map((occupation) => {
-          this.allOccupations.push({
-            label: occupation,
-            value: occupation
-          });
+        person.occupation.map((occupation) => {
+        this.allOccupations.push(occupation);
       });
     });
 
-    // Remove all unique values.
-    for (let i = 0; i < this.allOccupations.length - 1; i++) {
-      if (this.allOccupations[i + 1].value === this.allOccupations[i].value) {
-       this.filteredOccupationsOptions.push(this.allOccupations[i]);
-      }
-    }
-
     // Remove duplicate values
-    this.filteredOccupationsOptions = [...new Set(this.filteredOccupationsOptions
-      .map(({value}) => value))]
-      .map(e => this.filteredOccupationsOptions.
-      find(({value}) => value === e));
+    this.allOccupations = [...new Set(this.allOccupations)];
 
-  //  Remove unknown value
-    this.filteredOccupationsOptions = this.filteredOccupationsOptions.filter((option) => {
-      return option.label !== 'unknown';
+    // Remove unknown value
+    this.allOccupations = this.allOccupations.filter(value => value !== 'unknown' && value !== 'Unknown');
+
+    // Transform array to Object
+    this.allOccupations.forEach((occupation) => {
+      this.filteredOccupationsOptions.push({
+        label: occupation,
+        value: occupation
+      });
     });
   }
 }

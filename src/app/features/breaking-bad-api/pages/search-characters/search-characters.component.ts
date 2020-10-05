@@ -51,7 +51,7 @@ export class SearchCharactersComponent implements OnInit {
     }
 
     this.filterByShow(searchByShow);
-    this.filterByProfession(filter);
+    // this.filterByProfession(filter);
     this.filterByRIP(filter);
   }
 
@@ -79,14 +79,22 @@ export class SearchCharactersComponent implements OnInit {
     }
   }
 
-  private filterByProfession(filter): void {
-    if (filter.searchByOccupation !== 'all') {
-      console.log(this.filteredData);
-      this.filteredData = this.filteredData
-        .filter(person => person.occupation
-          .every(occupation => occupation.includes(filter.searchByOccupation)));
-      }
-  }
+  // private filterByProfession(filter): void {
+  //   if (filter.searchByOccupation !== 'all') {
+  //     console.log(this.filteredData);
+  //     this.filteredData = this.filteredData
+  //       .filter(person => person.occupation
+  //         .every(occupation => occupation.includes(filter.searchByOccupation)));
+  //     }
+  //
+  //   if (filter.searchByOccupation !== 'all') {
+  //     console.log(this.filteredData);
+  //     this.filteredData = this.filteredData
+  //       .filter(person =>  {
+  //         console.log(person);
+  //     });
+  //     }
+  // }
 
   private filterByRIP(form): void {
     if (form.searchByRIP !== Mortality.ALL) {

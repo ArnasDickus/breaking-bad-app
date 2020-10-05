@@ -8,5 +8,5 @@ import { Characters } from '@core/interfaces/breaking-bad-api/characters';
 })
 export class CardComponent {
   @Input() public filteredData: Characters[];
-  public errorImage = '../../../../../assets/images/breaking-bad-api/missing-person-2.jpg';
+  public errorImage = 'assets/images/breaking-bad-api/missing-person-2.jpg';
 }

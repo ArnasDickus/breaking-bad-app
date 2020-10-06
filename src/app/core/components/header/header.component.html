@@ -4,11 +4,18 @@
     <nav>
       <ul class="list-unstyled d-flex mb-0">
         <li class="pr-3">
-          <a class="header__text text-decoration-none" [routerLink]="'/'">Home</a>
+          <a
+            class="header__text text-decoration-none"
+            [routerLink]="'/'"
+            [routerLinkActive]="['header__is-active']"
+            [routerLinkActiveOptions]="{exact: true}">Home</a>
         </li>
 
         <li class="pr-3">
-          <a class="header__text text-decoration-none " [routerLink]=searchCharactersRoute>Search characters</a>
+          <a
+            class="header__text text-decoration-none "
+            [routerLink]=searchCharactersRoute
+            [routerLinkActive]="['header__is-active']">Search characters</a>
         </li>
       </ul>
     </nav>

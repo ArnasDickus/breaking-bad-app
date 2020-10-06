@@ -3,3 +3,13 @@
   min-height: 92vh;
   background-image: url("../../../../../assets/images/breaking-bad-api/bg.jpg");
 }
+
+.search-characters {
+  &__img {
+    width: 300px;
+
+    @media(min-width: 576px) {
+      width: initial;
+    }
+  }
+}

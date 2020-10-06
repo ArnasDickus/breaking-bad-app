@@ -1,8 +1,7 @@
 .card {
-  width: 360px;
+  max-width: 360px;
 
   &__img {
-    width: 360px;
     height: 480px;
   }
 }

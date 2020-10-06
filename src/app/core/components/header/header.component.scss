@@ -1,0 +1,18 @@
+.header {
+  background-color: #2f5572;
+
+  &__title {
+    color: #ffffff;
+
+    &:hover {
+      color: #a09595;
+    }
+  }
+  &__text {
+    color: #ffffff;
+
+    &:hover{
+      color: #a09595;
+    }
+  }
+}
